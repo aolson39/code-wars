@@ -34,7 +34,7 @@
 
 // {1,2,3,4,3,2,1}:
 
-equalSidesArray([1,2,3,4,3,2,1]);
+console.log(equalSidesArray([1,2,3,4,3,2,1]))
 
 function equalSidesArray(array){
     for (let index = 0; index < array.length; index++) {

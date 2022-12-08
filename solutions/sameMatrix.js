@@ -13,8 +13,8 @@
 
 // For example, the following matrices are considered the same.
 
-// 1 2
-// 3 4
+// 1 2  3 1
+// 3 4  4 2 
 
 // 3 1
 // 4 2
@@ -42,32 +42,36 @@ function countDifferentMatrices(matrices) {
     
     let count = 0;
     //build an array of all possible combinations for each matrix
-    matrices.forEach(matrix => {
-        let tempMatrix = []
-        tempMatrix = [matrix, [matrix[2], matrix[0], matrix[3], matrix[1]], [matrix[3], matrix[2], matrix[1], matrix[0]],[matrix[1], matrix[3], matrix[0], matrix[2]]]
+        matrix = matrices[0]
+
+        //this is one cube, with all different orientation possibilities
+        let tempMatrix = [matrix, [matrix[2], matrix[0], matrix[3], matrix[1]], [matrix[3], matrix[2], matrix[1], matrix[0]],[matrix[1], matrix[3], matrix[0], matrix[2]]]
+        count++
+        // console.log(`count being incremented ${resultMatrix}`);
+        // console.log(tempMatrix);
+
         //loop through and delete all matches in matrices and count++
+        // 
+        console.log(matrices);
         console.log(tempMatrix);
-        let foundYet = false;
-        tempMatrix.forEach((element,index) => {
-            let found = matrices.indexOf(element)
+
+        for(let i = 0; i < tempMatrix.length; i++){
+            let found = matrices.indexOf(tempMatrix[i])
+            console.log(tempMatrix[i]);
             if(found > -1){
-                console.log('matrix found!');
-                console.log(element);
-                console.log(`index of: ${found}`);
-                console.log(`matrices was = ${matrices}`);
+                // console.log(`matrices before splice: ${matrices}`);
+                console.log(found);
                 matrices.splice(found, 1)
-                console.log(`matrices is now = ${matrices}`);
-                if(!foundYet)
-                    foundYet = true
-                console.log(`foundYet is now: ${foundYet}`);
-                console.log(`count is: ${count}`);
+                console.log(i);
+                console.log(matrices);
+                // console.log(`matrices after splice: ${matrices}`);
+                // console.log(found);
             }
-        });
-        if(foundYet)
-            count++
-        console.log(matrix);
-    });
-    console.log(count);
+        }
+
+
+
+    
     return count;
 }
 
@@ -82,6 +86,10 @@ function countDifferentMatrices(matrices) {
                                 [2, 4, 1, 3]];
                           countDifferentMatrices(ms)
                           //return 2
+                          //1,2,3,4,
+                          //3,1,4,2,
+                          //4,3,2,1,
+                          //2,4,1,3
 
 // countDifferentMatrices([[1, 2, 3, 4],
 //         [3, 1, 4, 2],

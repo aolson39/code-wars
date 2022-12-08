@@ -24,7 +24,6 @@ function solution(list){
         }else{ // if not next in series
             if(tempArray.length > 2){ // if long enough to be a series > 2
                 result.push(tempArray)
-                console.log(tempArray);
             }else{ //if partial series, add each individual number to result array
                 tempArray.forEach(element =>{
                     result.push(element)
@@ -59,3 +58,4 @@ function formatArray(array){
     
 solution([-10, -9, -8, -6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20, 20, 20])
 // returns "-10--8,-6,-3-1,3-5,7-11,14,15,17-20"
+console.log(solution([-10, -9, -8, -6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20, 20, 20]))
