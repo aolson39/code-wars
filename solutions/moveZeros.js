@@ -3,19 +3,19 @@
 // preserving the order of the other elements.
 
 function moveZeros(array){
-    for(let i = 0; i < array.length; i++){
-        console.log(array[i])
-        if(array[i] === 0){
-            array.splice(i, 1);
-            //console.log(`array[i] = ${array[i]}`)
-            array.push(0)
-        }
-    }
-    console.log(array)
+    let zeros = array.filter(val => val === 0);
+    let result = array.filter(val => val !== 0);
+
+    return result.concat(zeros)
 }
 
 
 
 
-moveZeros([false,1,0,1,2,0,1,3,"a"]) // returns[false,1,1,2,1,3,"a",0,0]
-moveZeros([ 9, 0, 9, 1, 2, 1, 1, 3, 1, 9, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0 ])
+console.log(moveZeros([false,1,0,1,2,0,1,3,"a"])); // returns[false,1,1,2,1,3,"a",0,0]
+console.log(moveZeros([ 9, 0, 9, 1, 2, 1, 1, 3, 1, 9, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0 ]));
+console.log(moveZeros([
+    9, 9, 1, 2, 1, 1,
+    3, 1, 9, 0, 9, 0,
+    0, 0
+  ]));
